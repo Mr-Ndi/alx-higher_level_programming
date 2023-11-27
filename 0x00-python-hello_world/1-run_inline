@@ -1,3 +1,2 @@
 #!/bin/bash
 PYCODE="$PYCODE"
-python "$PYCODE"
