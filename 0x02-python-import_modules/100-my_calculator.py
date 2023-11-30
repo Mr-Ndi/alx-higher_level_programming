@@ -16,7 +16,6 @@ if "__name__ == __main__":
     if operat not in ('+', '-', '*', '/'):
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
-
     if operat == '+':
         ans = calc.add(a, b)
     elif operat == '-':
@@ -25,5 +24,4 @@ if "__name__ == __main__":
         ans = calc.mul(a, b)
     elif operat == '/':
         ans = calc.div(a, b)
-
     print("{} {} {} = {}".format(a, operat, b, ans))
