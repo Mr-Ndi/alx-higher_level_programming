@@ -1,10 +1,12 @@
 #include "lists.h"
+
 /**
   *find_node - find the n(th) node in a list
   *@head: first node of the linked list
   *@n: the position of the node
   *Return: the address of node
   */
+
 listint_t *find_node(listint_t **head, int n)
 {
     listint_t *current;
@@ -17,6 +19,7 @@ listint_t *find_node(listint_t **head, int n)
     }
     return (current);
 }
+
 /**
   *is_palindrome - checks if a linked list is a palindrome
   *@head: first node of the linked list
