@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
 
-    init = a_dictionary{0}
-    for ii in a_dictionary:
-        curr = a_dictionary.get(ii)
-        if curr is not None:
-            if curr > init:
-                init = curr
-    return init
+    init = list(a_dictionary.values())
+
+    if not init:
+        return None
+    begin = init[0]
+    for ii in init:
+        if ii > begin:
+            begin = ii
+    return begin
