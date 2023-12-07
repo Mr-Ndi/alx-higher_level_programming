@@ -1,7 +1,6 @@
 #!/usr/bin/usr/python3
 def simple_delete(a_dictionary, key=""):
 
-    new = a_dictionary.copy()
-    if key in new:
-        del new[key]
-    return new
+    if key in a_dictionary:
+        del a_dictionary[key]
+    return a_dictionary
