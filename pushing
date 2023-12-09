@@ -1,0 +1,5 @@
+#!/bin/bash
+git add .
+git commit -m "Not too late"
+git push
+
