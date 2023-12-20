@@ -11,6 +11,7 @@ class Square:
 
         self.size = size
 
+    @size.setter
     def size(self, value):
         """initialisation"""
         if type(value) != int:
@@ -19,6 +20,7 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
+    @property
     def size(self):
         """returning the size"""
         return self.__size
