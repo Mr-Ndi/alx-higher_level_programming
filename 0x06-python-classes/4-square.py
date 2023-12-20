@@ -17,7 +17,6 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
-
     def size(self):
         return self.size
 
