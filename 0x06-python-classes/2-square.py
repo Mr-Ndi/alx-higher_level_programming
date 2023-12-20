@@ -5,10 +5,9 @@ a class definition based on 1
 
 
 class Square:
-    """
-    definiton of the square
-    """
+    """definiton of the square"""
     def __init__(self, size=0):
+        """initialising"""
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
