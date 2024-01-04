@@ -52,7 +52,10 @@ class Rectangle:
         '''function to create a rectangle'''
         if self.__width == 0 or self.__height == 0:
             return ('')
-        return '\n'.join(['#' * self.__width] * self.__height)
+        for i in range(self.height):
+            poli = [str(self.print_symbol) * self.__width]
+            return '\n'.join(poli)
+        #return '\n'.join(str(self.print_symbol) * self.__width for _ in range(self.__height))
 
     def print(self):
         '''for displaying the created rectangle'''
@@ -64,4 +67,3 @@ class Rectangle:
     def __del__(self):
         print("Bye rectangle...")
         type(self).number_of_instances -= 1
-
