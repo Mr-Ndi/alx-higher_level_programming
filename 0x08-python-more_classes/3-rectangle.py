@@ -48,7 +48,7 @@ class Rectangle:
     def __str__(self):
         '''function to create a rectangle'''
         if self.__width == 0 or self.__height == 0:
-            return('')
+            return ('')
         return '\n'.join(['#' * self.__width] * self.__height)
 
     def print(self):
