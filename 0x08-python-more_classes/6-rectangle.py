@@ -9,8 +9,6 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
-        if self.number_of_instances == 0:
-            pass
         type(self).number_of_instances += 1
 
     @property
@@ -66,4 +64,4 @@ class Rectangle:
         print("Bye rectangle...")
         type(self).number_of_instances -= 1
 
-print ("{} instance of Rectangle".format(Rectangle.number_of_instances))
+# print ("{} instance of Rectangle".format(Rectangle.number_of_instances))
