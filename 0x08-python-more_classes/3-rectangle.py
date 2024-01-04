@@ -49,6 +49,6 @@ class Rectangle:
         '''function to create a rectangle'''
         return '\n'.join(['#' * self.__width] * self.__height)
 
-    def printing(self):
+    def print(self):
         '''for displaying the created rectangle'''
         print(str(self))
