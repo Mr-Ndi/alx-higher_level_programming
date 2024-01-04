@@ -52,10 +52,11 @@ class Rectangle:
         '''function to create a rectangle'''
         if self.__width == 0 or self.__height == 0:
             return ('')
-        for i in range(self.height):
-            poli = [str(self.print_symbol) * self.__width]
-            return '\n'.join(poli)
-        #return '\n'.join(str(self.print_symbol) * self.__width for _ in range(self.__height))
+        poli = [
+            str(self.print_symbol) * self.__width
+            for _ in range(self.__height)
+        ]
+        return '\n'.join(poli)
 
     def print(self):
         '''for displaying the created rectangle'''
