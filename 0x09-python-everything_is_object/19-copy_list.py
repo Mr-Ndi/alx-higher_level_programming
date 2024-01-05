@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-def copy_list(l):
-    return l.copy()
+def copy_list(la=None):
+    return list(la) if la is not None else []
