@@ -1,4 +1,3 @@
 #!/usr/bin/python3
 def copy_list(l):
-    poli = l.copy()
-    return poli
+    return l.copy()
