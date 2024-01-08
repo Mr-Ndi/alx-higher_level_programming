@@ -1,0 +1,32 @@
+# this is the test for the function that returns the sum of the parameters provided
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+"""testing if the function returns true data for both int a and b"""
+>>> add_integer(1, 2)
+3
+>>> add_integer(-4, 3)
+-1
+>>> add_integer(6, 3)
+9
+
+"""testing if the function returns the true value if a and b are not all integer"""
+>>> add_integer(1.5, -6)
+-5
+>>> add_integer(4.2, 3)
+7
+>>> add_integer(6, 3.4)
+9
+>>> add_integer(6)
+104
+>>> add_integer(0)
+98
+
+"""testing if TypeError wiil be raised if one of a or b is not a number"""
+>>> add_integer("wow", 7)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(4, "2")
+Traceback (most recent call last):
+TypeError: b must be an integer
