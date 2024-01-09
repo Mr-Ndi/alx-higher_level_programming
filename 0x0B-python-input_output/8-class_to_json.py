@@ -1,4 +1,4 @@
-#!/usr/bin/pyton3
+#!/usr/bin/python3
 """returing the dictionary description with simple data structure"""
 
 
