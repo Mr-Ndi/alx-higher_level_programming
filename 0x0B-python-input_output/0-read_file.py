@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 def read_file(filename=""):
-    with open(filename, 'r', encoding='UTF-8') as p:
+    with open(filename) as p:
         cont = p.read()
-        print(cont)
+        print(cont, end="")
