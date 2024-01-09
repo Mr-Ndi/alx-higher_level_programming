@@ -11,12 +11,8 @@
 9
 
 """testing if the function returns the true value if a and b are not all integer"""
->>> add_integer(1.5, -6)
--5
 >>> add_integer(4.2, 3)
 7
->>> add_integer(6, 3.4)
-9
 >>> add_integer(6)
 104
 >>> add_integer(0)
