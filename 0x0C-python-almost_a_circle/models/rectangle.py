@@ -119,7 +119,17 @@ class Rectangle(Base):
         if len(args) > 4:
             self.y = args[4]
         elif kwargs:
-            if len(kwargs) == 0:
+            if not kwargs:
                 pass
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Return the dictionary representation of a Rectangle."""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
