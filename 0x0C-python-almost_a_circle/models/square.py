@@ -3,19 +3,19 @@
 from models.rectangle import Rectangle
 
 
-class Square(Rectangle):
-    """Represent a square."""
+class Base:
+    """ this is the base class that we are gonna use in
+    this overall project about python
+    """
+    __nb_objects = 0
 
-    def __init__(self, size, x=0, y=0, id=None):
-        """Initialize a new Square.
-
-        Args:
-            size (int): The size of the new Square.
-            x (int): The x coordinate of the new Square.
-            y (int): The y coordinate of the new Square.
-            id (int): The identity of the new Square.
-        """
-        super().__init__(size, size, x, y, id)
+    def __init__(self, id=None):
+        """ constructor for ID of class"""
+        if id is not None:
+            self.id = id
+        else:
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
 
     @property
     def size(self):
