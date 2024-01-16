@@ -35,7 +35,7 @@ class Base:
             return "[]"
         return json.dumps(list_dictionaries)
 
-    @classmethod
+    @staticmethod
     def save_to_file(cls, list_objs):
         """A class method that writes Json string to a file"""
         if list_objs is None or list_objs == []:
