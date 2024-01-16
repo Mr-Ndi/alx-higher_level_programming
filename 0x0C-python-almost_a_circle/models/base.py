@@ -31,7 +31,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """Return the JSON serialization of a list of dicts.
-            Args:
+        Args:
             list_dictionaries (list): A list of dictionaries.
         """
         if not list_dictionaries:
