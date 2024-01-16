@@ -10,7 +10,10 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """ constructor for ID of class"""
+        """ constructor for ID of class Base
+            This will also increment the class attribute nb_of_object
+            when ever new instance is created
+        """
         if id is not None:
             self.id = id
         else:
@@ -19,11 +22,15 @@ class Base:
 
     @property
     def size(self):
-        """Get/set the size of the Square."""
+        """Get/set the size of the Square. that setts everything to
+            The value of size as long as height and width is equal"""
         return self.width
 
     @size.setter
     def size(self, value):
+        """this one will set the value of height and value of width
+            to the same value since height and width of square is the same
+        """
         self.width = value
         self.height = value
 
