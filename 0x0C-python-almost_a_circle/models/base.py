@@ -45,9 +45,9 @@ class Base:
         """
 
         name = cls.__name__+".json"
-        with open("name", "w") as dd:
+        with open(name, "w") as dd:
             if list_objs is None:
                 dd.write("[]")
             else:
                 list_dicts = [obj.to_dictionary() for obj in list_objs]
-                dd.write(Base.to_json_string(list_dicts))
+                dd.write(cls.to_json_string(list_dicts))
