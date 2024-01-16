@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-
+""" this is the first class for this project based on
+python overall modeles
+Wwe are lookin for importing and many things about pythn and oop
+"""
 from models.rectangle import Rectangle
 
 
