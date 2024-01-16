@@ -40,7 +40,7 @@ class Base:
         """A class method that writes Json string to a file"""
         if list_objs is None or list_objs == []:
             with open("base.json", "w") as dd:
-                json.domp([], dd)
+                json.dump([], dd)
         else:
             list_dicts = [obj.to_dictionary() for obj in list_objs]
             with open("base.json", "w") as dd:
