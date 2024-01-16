@@ -28,26 +28,20 @@ class Base:
             type(self).__nb_objects += 1
             self.id = type(self).__nb_objects
 
-    @staticmethod
     def to_json_string(list_dictionaries):
-        """static method that returns JSON string representation
-            from python dictionary form to json dictionary form
-        """
+        """Return the JSON serialization of a list of dicts"""
+
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         return json.dumps(list_dictionaries)
 
-    @staticmethod
     def save_to_file(cls, list_objs):
-        """A class method that writes Json string to a filea
-            by taking the the list of dictionary and turn them into json
-            form and save them
-        """
+        """writes the JSON string representation of list_objs to a file"""
 
-        name = cls.__name__+".json"
-        with open(name, "w") as dd:
+        filename = cls.__name__ + ".json"
+        with open(filename, "w") as jsonfile:
             if list_objs is None:
-                dd.write("[]")
+                jsonfile.write("[]")
             else:
-                list_dicts = [obj.to_dictionary() for obj in list_objs]
-                dd.write(cls.to_json_string(list_dicts))
+                list_dicts = [o.to_dictionary() for o in list_objs]
+                jsonfile.write(Base.to_json_string(list_dicts))
