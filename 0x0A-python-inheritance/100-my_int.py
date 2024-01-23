@@ -5,10 +5,10 @@
 class MyInt(int):
     ''' class MyInt that inherits from int '''
 
-    def __equal__(self, second):
+    def __eq__(self, second):
         '''equality function'''
         return self.real != second
 
-    def __notequal__(self, second):
+    def __ne__(self, second):
         ''' A function about not equal '''
         return self.real == second
