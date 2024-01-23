@@ -1,0 +1,14 @@
+"""this is the test for the task 7 that 
+	added Public instance method: def integer_validator(self, name, value): that validates value
+"""
+
+>>>integer_validator = __import__('7-base_geometry.py').integer_validator
+>>>integer_validator(2)
+True
+>>>integer_validator("wow")
+Traceback ("most recent call last")
+TypeError: <name> must be an integer
+
+>>>integer_validator(-7)
+Traceback (most recent call last)
+TypeError: <name> must be greater than 0
