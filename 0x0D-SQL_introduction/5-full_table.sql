@@ -1,2 +1,2 @@
 -- 5-full_table.sql
-SHOW COLUMNS FROM first_table
+SHOW CREATE TABLE first_table
