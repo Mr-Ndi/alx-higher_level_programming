@@ -19,8 +19,7 @@ if __name__ == "__main__":
     The_cursor = ourdb.cursor()
 
     #executing the query
-    qer = "SELECT * from states WHERE name LIKE %s ORDER BY states.id ASC".format(cname)
-    The_cursor.execute(qer, (qer + '%',))
+    The_cursor.execute("SELECT * from states WHERE name LIKE %s ORDER BY states.id ASC", (cname + '%',))
 
     # retriving the answer
     result = The_cursor.fetchall()
