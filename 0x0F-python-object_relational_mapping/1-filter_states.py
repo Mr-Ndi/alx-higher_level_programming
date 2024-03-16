@@ -22,8 +22,8 @@ if __name__ == "__main__":
     my_cursor = my_db.cursor()
 
     # Execute a SELECT query to fetch data
-    # my_cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC;")
-    my_cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC;")
+    my_cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC;")
+    # my_cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC;")
 
     # fetch all the data returned by the query
     my_data = my_cursor.fetchall()
