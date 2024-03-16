@@ -19,7 +19,8 @@ if __name__ == "__main__":
     The_cursor = ourdb.cursor()
 
     #executing the query
-    The_cursor.execute("SELECT * from states WHERE name LIKE %s ORDER BY states.id ASC", (cname + '%',))
+    question="SELECT * from states WHERE name LIKE %s ORDER BY states.id ASC;"
+    The_cursor.execute(question, (cname + '+%',))
 
     # retriving the answer
     result = The_cursor.fetchall()
