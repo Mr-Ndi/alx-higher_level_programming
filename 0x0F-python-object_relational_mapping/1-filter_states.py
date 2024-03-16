@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''A script that lists all states with a name starting with Nfrom the database hbtn_0e_0_usa'''
+'''A script that lists all states with a name with N '''
 if __name__ == "__main__":
     import sys
     import MySQLdb
@@ -21,12 +21,12 @@ if __name__ == "__main__":
     _cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
     
     # retriving the answer
-    result = The_cursor.fetchall()
+    result = _cursor.fetchall()
 
     #printing the result
     for city in result:
         print(city)
 
     #closing corsor And the connection object
-    The_cursor.close()
+    _cursor.close()
     ourdb.close()
