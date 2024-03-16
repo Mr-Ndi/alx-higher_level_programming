@@ -1,21 +1,38 @@
 #!/usr/bin/python3
 """
-importing python3
+Module that connects a python script to a database
 """
+
 if __name__ == "__main__":
+
     import MySQLdb
     import sys
 
-    # connect the db
-    database = MySQLdb.connect(host='localhost', user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3], port=3306)
-    # create the cusror && execute the query
-    c = sys.argv[3].cursor()
-    # executing the query
-    c.execute("SELECT * FROM states ORDER BY id ASC")
+    # declaring the vars
+    my_host = 'localhost'
+    users = sys.argv[1]
+    my_password = sys.argv[2]
+    my_db = sys.argv[3]
+    port = 3306
+    # Connect database using command-line arguments
+    my_db = MySQLdb.connect(
+            host=my_host, user=users, passwd=my_password, db=my_db, port=port
+            )
+    # Create cursor obj to interact with database
+    my_cursor = my_db.cursor()
 
-    # print a tuple
-    [print(data) for data in c.fetchall() if data[1][0] == "N"]
-    # closing the cursor
-    c.close()
-    # closing the db
-    database.close()
+    # Execute a SELECT query to fetch data
+    my_cursor.execute("SELECT * FROM states ORDER BY states.id ASC;")
+
+    # fetch all the data returned by the query
+    my_data = my_cursor.fetchall()
+
+    # Iterate through the fetched data and print each row
+    for row in my_data:
+        print(row)
+
+    # Close all cursors
+    my_cursor.close()
+
+    # Close all databases
+    my_db.close()
