@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-'''A script that lists all states with a name with N '''
+'''
+A script that lists all states with a name with N
+'''
 if __name__ == "__main__":
     import sys
     import MySQLdb
@@ -9,22 +11,24 @@ if __name__ == "__main__":
     passw = sys.argv[2]
     ourdb = sys.argv[3]
     my_host = 'localhost'
-    my_p = 3306
+    port = 3306
 
     #establishing the connection
-    ourdb = MySQLdb.connect(host=my_host, user=username, passwd=passw, db=ourdb, port=my_p)
+    ourdb = MySQLdb.connect(
+        host=my_host, user=username, passwd=passw, db=ourdb, port=port
+        )
 
     #creating cursor
-    _cursor = ourdb.cursor()
+    corse = ourdb.cursor()
 
     #executing the query
-    _cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+    corse.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
     
     # retriving the answer printing the result
-    result = _cursor.fetchall()
+    result = corse.fetchall()
     for city in result:
         print(city)
 
     #closing corsor And the connection object
-    _cursor.close()
+    corse.close()
     ourdb.close()
