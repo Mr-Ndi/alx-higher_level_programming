@@ -4,7 +4,9 @@ Module that connects a python script to a database
 """
 
 if __name__ == "__main__":
-
+    """
+    A script that lists all cities from the database
+    """
     import MySQLdb
     import sys
 
