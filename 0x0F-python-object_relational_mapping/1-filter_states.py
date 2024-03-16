@@ -1,34 +1,35 @@
 #!/usr/bin/python3
-'''
-A script that lists all states with a name with N
-'''
+"""
+iporting python3
+"""
 if __name__ == "__main__":
-    import sys
     import MySQLdb
+    import sys
 
-    #declaring some variable and initialise them with the arguments
-    username = sys.argv[1]
-    passw = sys.argv[2]
-    ourdb = sys.argv[3]
+    # declaring varables
     my_host = 'localhost'
+    users = sys.argv[1]
+    my_password = sys.argv[2]
+    my_db = sys.argv[3]
     port = 3306
 
-    #establishing the connection
-    ourdb = MySQLdb.connect(
-        host=my_host, user=username, passwd=passw, db=ourdb, port=port
-        )
+    # connect the db
+    database = MySQLdb.connect(
+            host=my_host, user=users, passwd=my_password, db=my_db, port=port
+            )
+    # create the cusror && execute the query
+    corse = database.cursor()
+    # executing the query
+    corse.execute("SELECT * FROM states WHERE name \
+LIKE BINARY 'N%' ORDER BY id ASC")
 
-    #creating cursor
-    corse = ourdb.cursor()
+    # fetch the data queried
+    my_data = corse.fetchall()
 
-    #executing the query
-    corse.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
-    
-    # retriving the answer printing the result
-    result = corse.fetchall()
-    for city in result:
-        print(city)
-
-    #closing corsor And the connection object
+    # print a tuple
+    for data in my_data:
+        print(data)
+    # closing the cursor
     corse.close()
-    ourdb.close()
+    # closing the db
+    database.close()
