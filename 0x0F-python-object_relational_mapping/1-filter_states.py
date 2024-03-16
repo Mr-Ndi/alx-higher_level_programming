@@ -5,14 +5,14 @@ if __name__ == "__main__":
     import MySQLdb
 
     #declaring some variable and initialise them with the arguments
-    Cuser = sys.argv[1]
+    username = sys.argv[1]
     passw = sys.argv[2]
     ourdb = sys.argv[3]
     my_host = 'localhost'
     my_p = 3306
 
     #establishing the connection
-    ourdb = MySQLdb.connect(host=my_host, user=Cuser, passwd=passw, db=ourdb, port=my_p)
+    ourdb = MySQLdb.connect(host=my_host, user=username, passwd=passw, db=ourdb, port=my_p)
 
     #creating cursor
     _cursor = ourdb.cursor()
@@ -20,10 +20,8 @@ if __name__ == "__main__":
     #executing the query
     _cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
     
-    # retriving the answer
+    # retriving the answer printing the result
     result = _cursor.fetchall()
-
-    #printing the result
     for city in result:
         print(city)
 
