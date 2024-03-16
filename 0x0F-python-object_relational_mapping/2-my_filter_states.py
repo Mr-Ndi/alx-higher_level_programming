@@ -13,6 +13,7 @@ if __name__ == "__main__":
     users = sys.argv[1]
     my_password = sys.argv[2]
     my_db = sys.argv[3]
+    name = sys.argv[4]
     port = 3306
     # Connect database using command-line arguments
     my_db = MySQLdb.connect(
@@ -22,7 +23,7 @@ if __name__ == "__main__":
     my_cursor = my_db.cursor()
 
     # Execute a SELECT query to fetch data
-    my_cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY states.id ASC;")
+    my_cursor.execute("SELECT * FROM states WHERE name LIKE BINARY {} ORDER BY states.id ASC;".format(sys.argv[4]))
 
     # fetch all the data returned by the query
     my_data = my_cursor.fetchall()
