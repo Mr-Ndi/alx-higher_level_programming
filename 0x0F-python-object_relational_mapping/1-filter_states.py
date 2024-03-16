@@ -29,7 +29,8 @@ if __name__ == "__main__":
 
     # Iterate through the fetched data and print each row
     for row in my_data:
-        print(row)
+        if row[0] == "N":
+            print(row)
 
     # Close all cursors
     my_cursor.close()
