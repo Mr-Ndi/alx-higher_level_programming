@@ -1,32 +1,38 @@
 #!/usr/bin/python3
-'''A script that lists all states from the database hbtn_0e_0_usa'''
+"""
+Module that connects a python script to a database
+"""
+
 if __name__ == "__main__":
-    import sys
+
     import MySQLdb
+    import sys
 
-    #declaring some variable and initialise them with the arguments
-    Cuser = sys.argv[1]
-    passw = sys.argv[2]
-    ourdb = sys.argv[3]
+    # declaring the vars
     my_host = 'localhost'
-    my_p = 3306
+    users = sys.argv[1]
+    my_password = sys.argv[2]
+    my_db = sys.argv[3]
+    port = 3306
+    # Connect database using command-line arguments
+    my_db = MySQLdb.connect(
+            host=my_host, user=users, passwd=my_password, db=my_db, port=port
+            )
+    # Create cursor obj to interact with database
+    my_cursor = my_db.cursor()
 
-    #establishing the connection
-    ourdb = MySQLdb.connect(host=my_host, user=Cuser, passwd=passw, db=ourdb, port=my_p)
+    # Execute a SELECT query to fetch data
+    my_cursor.execute("SELECT * FROM states ORDER BY states.id ASC;")
 
-    #creating cursor
-    The_cursor = ourdb.cursor()
+    # fetch all the data returned by the query
+    my_data = my_cursor.fetchall()
 
-    #executing the query
-    The_cursor.execute("SELECT * from states ORDER BY states.id ASC")
-    
-    # retriving the answer
-    result = The_cursor.fetchall()
+    # Iterate through the fetched data and print each row
+    for row in my_data:
+        print(row)
 
-    #printing the result
-    for city in result:
-        print(city)
+    # Close all cursors
+    my_cursor.close()
 
-    #closing corsor And the connection object
-    The_cursor.close()
-    ourdb.close()
+    # Close all databases
+    my_db.close()
