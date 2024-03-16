@@ -15,10 +15,10 @@ if __name__ == "__main__":
     ourdb = MySQLdb.connect(host=my_host, user=Cuser, passwd=passw, db=ourdb, port=my_p)
 
     #creating cursor
-    The_cursor = ourdb.cursor()
+    _cursor = ourdb.cursor()
 
     #executing the query
-    The_cursor.execute("SELECT * from states WHERE name LIKE 'N%' ORDER BY states.id ASC")
+    _cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
     
     # retriving the answer
     result = The_cursor.fetchall()
