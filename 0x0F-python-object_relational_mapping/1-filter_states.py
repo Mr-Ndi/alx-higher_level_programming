@@ -6,29 +6,17 @@ if __name__ == "__main__":
     import MySQLdb
     import sys
 
-    # declaring varables
-    my_host = 'localhost'
-    users = sys.argv[1]
-    my_password = sys.argv[2]
-    my_db = sys.argv[3]
-    port = 3306
-
     # connect the db
     database = MySQLdb.connect(
-            host=my_host, user=users, passwd=my_password, db=my_db, port=port
+            user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3]
             )
     # create the cusror && execute the query
-    corse = database.cursor()
+    c = dbe.cursor()
     # executing the query
-    corse.execute("SELECT * FROM states WHERE name \
-LIKE BINARY 'N%' ORDER BY id ASC")
-
-    # fetch the data queried
-    my_data = corse.fetchall()
+    c.execute("SELECT * FROM states ORDER BY id ASC")
 
     # print a tuple
-    for data in my_data:
-        print(data)
+      print(data) for data in c.fetchall() if state[1][0] == "N"
     # closing the cursor
     corse.close()
     # closing the db
