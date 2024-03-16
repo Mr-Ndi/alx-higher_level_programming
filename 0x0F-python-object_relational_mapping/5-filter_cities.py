@@ -19,7 +19,7 @@ if __name__ == "__main__":
     The_cursor = ourdb.cursor()
 
     #executing the query
-    question="SELECT * from cities WHERE name LIKE %s ORDER BY cities.id ASC;"
+    question="SELECT cities.name from cities JOIN states.id=cities.state_id WHERE states.name LIKE %s;"
     The_cursor.execute(question, (cname + '+%',))
 
     # retriving the answer
