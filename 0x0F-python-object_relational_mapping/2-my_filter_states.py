@@ -23,7 +23,7 @@ if __name__ == "__main__":
     my_cursor = my_db.cursor()
 
     # Execute a SELECT query to fetch data
-    my_cursor.execute("SELECT * FROM states WHERE name LIKE BINARY {} ORDER BY states.id ASC;".format(sys.argv[4]))
+    my_cursor.execute("SELECT * FROM states WHERE name LIKE BINARY {} ORDER BY states.id ASC;".format(name))
 
     # fetch all the data returned by the query
     my_data = my_cursor.fetchall()
