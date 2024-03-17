@@ -20,9 +20,8 @@ if __name__ == "__main__":
     engine=create_engine('mysql://{}:{}@localhost:3306/{}'.format(users,my_password, my_db))
     session = sessionmaker(bind=engine)
    
-    first_state = session.query(State).order_by(State.id).first()
+    state = session.query(State).order_by(State.id).all()
 
-    if first_state:
-        print(first_state)
-    else:
-        print("Nothing")
+    for ans in state:
+        print(ans)
+     session.close()
