@@ -17,13 +17,12 @@ if __name__ == "__main__":
     my_db = sys.argv[3]
     port = 3306
     
-    engine=create_engine('mysql:{}:{}//@localhost:3306/{}'.format(users,my_password, my_db))
-    sesion = sessionmaker(bind=engine)
-    # result= sesion.execute("SELECT * FROM states ORDER BY states.id ASC;")
-    result = sesion.query(state).order_by(state.id).all()
+    engine=create_engine('mysql://{}:{}@localhost:3306/{}'.format(users,my_password, my_db))
+    session = sessionmaker(bind=engine)
+   
+    first_state = session.query(State).order_by(State.id).first()
 
-    row = result.fetchall()
-    for ans in row:
-        print(ans)
-
-    sesion.close()
+    if first_state:
+        print(first_state)
+    else:
+        print("Nothing")
