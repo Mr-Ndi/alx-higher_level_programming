@@ -19,10 +19,11 @@ if __name__ == "__main__":
     
     engine=create_engine('mysql:{}:{}//@localhost:3306/{}'.format(users,my_password, my_db))
     sesion = sessionmaker(bind=engine)
-    result= sesion.execute("SELECT * FROM states ORDER BY states.id ASC;")
+    # result= sesion.execute("SELECT * FROM states ORDER BY states.id ASC;")
+    result = sesion.query(State).order_by(State.id).all()
 
     row = result.fetchall()
     for ans in row:
         print(ans)
 
-    sesion.close_all()
+    sesion.close()
