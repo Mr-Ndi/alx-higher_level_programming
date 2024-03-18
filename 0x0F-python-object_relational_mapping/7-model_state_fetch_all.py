@@ -18,11 +18,9 @@ if __name__ == "__main__":
     port = 3306
     engine = create_engine('mysql:{}:{}//@localhost:3306/{}'.format(
         users, my_password, my_db), pool_pre_ping=True)
-    sesion = sessionmaker(bind=engine)
-    result = sesion.execute("SELECT * FROM states ORDER BY states.id ASC;")
+    session = sessionmaker(bind=engine)
+    session = sessionmaker()
 
-    row = result.fetchall()
-    for ans in row:
-        print(ans)
-
-    sesion.close_all()
+    for state in session.query(State).order_by(State.id):
+        print("{}: {}".format(state.id, state.name))
+    session.close_all()
