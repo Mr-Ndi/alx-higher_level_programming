@@ -17,7 +17,7 @@ if __name__ == "__main__":
     my_db = sys.argv[3]
     port = 3306
     engine = create_engine('mysql:{}:{}//@localhost:3306/{}'.format(
-        users, my_password, my_db))
+        users, my_password, my_db), pool_pre_ping=True)
     sesion = sessionmaker(bind=engine)
     result = sesion.execute("SELECT * FROM states ORDER BY states.id ASC;")
 
