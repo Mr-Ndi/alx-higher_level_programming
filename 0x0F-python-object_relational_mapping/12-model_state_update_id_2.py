@@ -17,11 +17,11 @@ if __name__ == "__main__":
     my_db = sys.argv[3]
     port = 3306
     engine = create_engine('mysql://{}:{}@localhost:3306/{}'.format(
-        users, my_password, my_db))
+        users, my_password, my_db),  pool_pre_ping=True)
     session = sessionmaker(bind=engine)
+    session = sessionmaker()
     new_state = "New Mexico"
-    state_id = 2
-    state = session.query(State).filter(State.id == state_id).first()
+    state = session.query(State).filter_by(id = 2).first()
     if state:
         state.name = new_state
         session.commit()
