@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     question = "SELECT * from states WHERE name\
           LIKE %s ORDER BY states.id ASC;"
-    The_cursor.execute(question, (cname + ' + %',))
+    The_cursor.execute(question, (cname + '%',))
     result = The_cursor.fetchall()
 
     for city in result:
