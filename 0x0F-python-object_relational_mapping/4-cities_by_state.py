@@ -18,10 +18,10 @@ if __name__ == "__main__":
     users = sys.argv[1]
     my_password = sys.argv[2]
     my_db = sys.argv[3]
-    port = 3306
+    port_nbr = 3306
     # Connect database using command-line arguments
     my_db = MySQLdb.connect(
-            host=my_host, user=users, passwd=my_password, db=my_db, port=port
+            host=my_host, user=users, passwd=my_password, db=my_db, port=port_nbr
             )
     # Create cursor obj to interact with database
     my_cursor = my_db.cursor()
