@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-importing the pyython3
+imoorting the python3
 """
 import sys
 from sqlalchemy import create_engine
@@ -19,8 +19,6 @@ if __name__ == "__main__":
     my_session_maker = sessionmaker(bind=my_engine)
     my_session = my_session_maker()
 
-    for state in my_session.query(State).order_by(State.id):
-        print("{}: {}".format(state.id, state.name))
     state = my_session.query(State).order_by(State.id).first()
     if state is None:
         print("Nothing")
