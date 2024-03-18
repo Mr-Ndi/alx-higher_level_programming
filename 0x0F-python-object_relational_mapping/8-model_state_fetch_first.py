@@ -1,29 +1,25 @@
 #!/usr/bin/python3
+
 """
-Module that connects a python script to a database
+importing the pyython3
 """
+import sys
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from model_state import Base, State
 
 if __name__ == "__main__":
 
-    import sys
-    from sqlalchemy import  create_engine
-    from sqlalchemy.orm import sessionmaker
-    from model_state import Base, State
+    my_engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost/{}'
+        .format(sys.argv[1], sys.argv[2], sys.argv[3]),
+        pool_pre_ping=True
+    )
 
-    # declaring the vars
-    my_host = 'localhost'
-    users = sys.argv[1]
-    my_password = sys.argv[2]
-    my_db = sys.argv[3]
-    port = 3306
-    
-    engine=create_engine('mysql://{}:{}@localhost:3306/{}'.format(users,my_password, my_db))
-    session = sessionmaker(bind=engine)
-   
-    first_state = session.query(State).order_by(State.id).first()
+    my_session_maker = sessionmaker(bind=my_engine)
+    my_session = my_session_maker()
 
-    if first_state:
-        print(first_state)
-    else:
-        print("Nothing")
-    session.close()
+    for state in my_session.query(State).order_by(State.id):
+        print("{}: {}".format(state.id, state.name))
+
+    my_session.close()
