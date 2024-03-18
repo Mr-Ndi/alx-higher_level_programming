@@ -10,34 +10,30 @@ if __name__ == "__main__":
     import MySQLdb
     import sys
 
-    # Check if all required arguments are provided
     if len(sys.argv) != 4:
-        print("Usage: {} username password database".format(sys.argv[0]))
         sys.exit(1)
 
-    # Extracting command-line arguments
+    # declaring the vars
+    my_host = 'localhost'
     users = sys.argv[1]
     my_password = sys.argv[2]
     my_db = sys.argv[3]
-
-    # Connect to the MySQL server
+    port = 3306
+    # Connect database using command-line arguments
     my_db = MySQLdb.connect(
-        host='localhost', user=users, passwd=my_password, db=my_db, port=3306
-    )
-
-    # Create a cursor object
+            host=my_host, user=users, passwd=my_password, db=my_db, port=port
+            )
+    # Create cursor obj to interact with database
     my_cursor = my_db.cursor()
 
     # Execute a SELECT query to fetch data
     my_cursor.execute("SELECT * FROM cities ORDER BY cities.id ASC;")
 
-    # Fetch all the data returned by the query
+    # fetch all the data returned by the query and print each row
     my_data = my_cursor.fetchall()
-
-    # Display results as specified
     for row in my_data:
         print(row)
 
-    # Close the cursor and database connection
+    # Close all cursors &  databases
     my_cursor.close()
     my_db.close()
