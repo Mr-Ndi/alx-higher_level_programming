@@ -27,7 +27,13 @@ if __name__ == "__main__":
     my_cursor = my_db.cursor()
 
     # Execute a SELECT query to fetch data
-    my_cursor.execute("SELECT * FROM cities ORDER BY cities.id ASC;")
+    my_cursor.execute(
+        """SELECT cities.id, cities.name, states.name
+        FROM cities
+        JOIN states
+        ON states.id = cities.state_id
+        ORDER BY cities.id"""
+    )
 
     # fetch all the data returned by the query and print each row
     my_data = my_cursor.fetchall()
