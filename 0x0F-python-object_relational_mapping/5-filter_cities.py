@@ -19,13 +19,18 @@ if __name__ == "__main__":
         )
     The_cursor = ourdb.cursor()
 
-    question = "SELECT cities.name from cities JOIN\
-          states ON cities.state_id=states.id WHERE states.name LIKE %s;"
-    The_cursor.execute(question, (cname + '+%',))
-    result = The_cursor.fetchall()
+    The_cursor.execute(
+        """SELECT * FROM cities
+        INNER JOIN states
+        ON cities.state_id = states.id
+        ORDER BY cities.id"""
+    )
 
-    for city in result:
-        print(city)
+    print(", ".join([city[2]
+                     for city in The_cursor.fetchall()
+                     if city[4] == sys.argv[4]])
+
+          )
 
     The_cursor.close()
     ourdb.close()
