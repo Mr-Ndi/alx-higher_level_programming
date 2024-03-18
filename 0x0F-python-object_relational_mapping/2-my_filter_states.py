@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     # Execute a SELECT query to fetch data
     query = "SELECT * FROM states WHERE name\
-                       LIKE BINARY {} ORDER BY states.id ASC;".format(name)
+                       LIKE BINARY '{}' ORDER BY states.id ASC;".format(name)
 
     my_cursor.execute(query)
 
