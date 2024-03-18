@@ -19,6 +19,7 @@ if __name__ == "__main__":
     engine = create_engine('mysql://{}:{}@localhost:3306/{}'.format(
         users, my_password, my_db))
     session = sessionmaker(bind=engine)
+    session = sessionmaker()
     a_state = session.query(State).filter(
         State.name.like('%a%')).order_by(State.id).all()
 
