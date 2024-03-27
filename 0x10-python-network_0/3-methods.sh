@@ -1,3 +1,3 @@
 #!/bin/bash
-# cURL to the end
-curl -sX DELETE "$1" 
+# URL and displays all HTTP methods the server will accept
+curl -Is "$1" | grep Allow | cut -c 8-
