@@ -1,3 +1,3 @@
 #!/bin/bash
-# 0. cURL body size
+# cURL b0dy siz3
 curl -s "$1" | wc -c
