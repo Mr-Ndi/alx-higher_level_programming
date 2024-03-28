@@ -7,5 +7,7 @@ from urllib import request
 from sys import argv
 if __name__ == "__main__":
     link = sys.argv[1]
-    with urllib.request.urlopen(link) as ans:
+    
+    w = urllib.request.Request(link)
+    with urllib.request.urlopen(w) as ans:
         print(dict((ans.header).get('X-REQUEST-ID')))
