@@ -2,7 +2,7 @@
 import urllib.request
 with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as ans:
     data = ans.read()
-    real_data = data.decode('utf-8')
-    lines = real_data.split('\n')
-    for line in lines:
-        print("-{}".format(line))
+    print("Body response:")
+    print("\t- type: {}".format(type(data)))
+    print("\t- content: {}".format(data))
+    print("\t- utf8 content: {}".format(data.decode("utf-8")))
