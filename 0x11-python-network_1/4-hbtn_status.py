@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import request
+import requests
 if __name__ == "__main__":
     data = request.ge('https://alx-intranet.hbtn.io/status')
     print("Body response:")
