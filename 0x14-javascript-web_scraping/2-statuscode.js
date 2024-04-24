@@ -1,13 +1,12 @@
 #!/usr/bin/node
-const fs = require('request');
+const request = require('request');
 
 const url = process.argv[2];
 
-fs.get(ulr, (irabu, response) => {
+request.get(url, function (irabu, response, body) {
   if (irabu) {
     console.log(irabu);
   } else {
-    answer = response.statusCode;
-    console.log(`code: ${answer}`);
+    console.log('code:', response.statusCode);
   }
 });
