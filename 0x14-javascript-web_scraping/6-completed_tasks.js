@@ -12,12 +12,12 @@ request(link, function (error, response, body) {
     data.forEach(function (result) {
       if (result.completed === true) {
         const userid = result.userId;
-        if (!(userid in dictionary)) {
-          dictionary[userid] = 0;
+        if (!(userid in dict)) {
+          dict[userid] = 0;
         }
-        dictionary[userid] += 1;
+        dict[userid] += 1;
       }
     });
-    console.log(dictionary);
+    console.log(dict);
   }
 });
