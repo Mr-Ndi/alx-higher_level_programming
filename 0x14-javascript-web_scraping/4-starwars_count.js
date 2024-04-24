@@ -8,7 +8,7 @@ request.get(url, (irabu, response, body) => {
   if (irabu) {
     console.log(irabu);
   } else {
-    const num = (JSON.parse(body)).length();
+    const num = (JSON.parse(body)).length;
     console.log(num);
   }
 });
