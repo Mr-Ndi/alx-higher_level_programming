@@ -1,14 +1,18 @@
 #!/usr/bin/node
+
 const request = require('request');
 
-const id = 18;
+const apiUrl = process.argv[2];
 
-const url = 'https://swapi-api.alx-tools.com/api/films/' + id;
-request.get(url, (irabu, response, body) => {
-  if (irabu) {
-    console.log(irabu);
-  } else {
-    const num = (JSON.parse(body)).length;
-    console.log(num);
+request(apiUrl, function (error, response, body) {
+  if (!error) {
+    const results = JSON.parse(body).results;
+
+    const moviesWithWedge = results.reduce((count, movie) => {
+      return movie.characters.find((character) => character.endsWith('/18/'))
+        ? count + 1 // if found
+        : count; // if not found
+    }, 0); // initiliazing count to zero
+    console.log(moviesWithWedge);
   }
 });
