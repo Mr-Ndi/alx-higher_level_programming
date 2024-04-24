@@ -13,6 +13,6 @@ fs.writeFile(filePath, Data, { encoding: 'utf-8' }, (err) => {
   if (err) {
     console.error(err);
   } else {
-    console.log(`'${Data}' has been written to the file ${filePath}`);
+    console.log(Data);
   }
 });
